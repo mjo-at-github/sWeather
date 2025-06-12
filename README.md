@@ -4,4 +4,12 @@
 
 ### Usage
 
-This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
+You can run this project using sbt. At the command line type:
+
+`sbt "run Hamburg"`
+
+Try replacing Hamburg with a city of your choice!
+
+### Remarks
+
+This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, etc.
