@@ -16,12 +16,9 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     env:
       OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 11
@@ -30,12 +27,8 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: 'sbt'
-    - name: Install sbt
-      run: |
-        curl -L -o sbt.deb https://github.com/sbt/sbt/releases/download/v1.9.9/sbt-1.9.9.deb
-        sudo dpkg -i sbt.deb
-        sudo apt-get update
-        sudo apt-get install sbt
+    - uses: sbt/setup-sbt@v1
     - name: Run app
       if: env.OPENWEATHER_API_KEY != ''
+      shell: bash
       run: sbt "run Hamburg"
