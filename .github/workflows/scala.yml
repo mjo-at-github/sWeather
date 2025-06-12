@@ -32,4 +32,4 @@ jobs:
         cache: 'sbt'
     - name: Run app
       if: env.OPENWEATHER_API_KEY != ''
-      run: sbt ""run Hamburg"
+      run: sbt "run Hamburg"
