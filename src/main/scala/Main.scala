@@ -1,26 +1,20 @@
-//> using dep "com.squareup.okhttp3:okhttp:4.12.0"
-
-//> using dep "com.google.code.gson:gson:2.13.1"
-
 import okhttp3.{OkHttpClient, Request, Response}
-
 import com.google.gson.{JsonObject, JsonParser}
-
 import scala.util.{Try, Success, Failure}
 
 object Weather:
 
   private def parseTemperatureFromJson(json: String): Double =
-
     val jsonObj = JsonParser.parseString(json).getAsJsonObject
-
     jsonObj.getAsJsonObject("main").get("temp").getAsDouble
+
+  private def parseFeelsLikeFromJson(json: String): Double =
+    val jsonObj = JsonParser.parseString(json).getAsJsonObject
+    jsonObj.getAsJsonObject("main").get("feels_like").getAsDouble
 
   @main def main(args: String*): Unit =
 
-    val apiKey = ""
-
-    println(args)
+    val apiKey = "e8afda2e61d4d6272f9313ee6637c5e5"
 
     val city = args(0)
 
@@ -42,13 +36,16 @@ object Weather:
 
             val responseBody = response.body.string
 
-            val temperature = parseTemperatureFromJson(responseBody)
+            println(responseBody)
 
-            println(s"Temperature in $city: ${temperature}°C")
+            val temperature = parseTemperatureFromJson(responseBody)
+            val feels_like = parseFeelsLikeFromJson(responseBody)
+
+            println(s"The temperature in $city is ${temperature}. Feels like ${feels_like}.")
 
           else
 
-            println(s"Error: ${response.code} - ${response.message}")
+            println(s"Error: ${response.code} - ${response.message} ")
 
         finally
 
