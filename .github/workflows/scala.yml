@@ -30,6 +30,8 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: 'sbt'
+    - name: Set up sbt
+      uses: actions/setup-sbt@v3
     - name: Run app
       if: env.OPENWEATHER_API_KEY != ''
       run: sbt "run Hamburg"
