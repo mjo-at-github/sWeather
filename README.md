@@ -2,9 +2,13 @@
 
 ## An sbt project compiled with Scala 3
 
+Returns temperature and feels-like temperature for a given city.
+
 ### Usage
 
-You can run this project using sbt. At the command line type:
+You can run this project using sbt. 
+
+At the command line type:
 
 `sbt "run Hamburg"`
 

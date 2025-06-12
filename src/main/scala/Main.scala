@@ -2,7 +2,7 @@ import okhttp3.{OkHttpClient, Request, Response}
 import com.google.gson.{JsonObject, JsonParser}
 import scala.util.{Try, Success, Failure}
 
-object Weather:
+object sWeather:
 
   private def parseTemperatureFromJson(json: String): Double =
     val jsonObj = JsonParser.parseString(json).getAsJsonObject
@@ -36,7 +36,7 @@ object Weather:
 
             val responseBody = response.body.string
 
-            println(responseBody)
+            // println(responseBody)
 
             val temperature = parseTemperatureFromJson(responseBody)
             val feels_like = parseFeelsLikeFromJson(responseBody)
