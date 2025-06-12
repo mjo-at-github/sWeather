@@ -14,7 +14,7 @@ object sWeather:
 
   @main def main(args: String*): Unit =
 
-    val apiKey = "e8afda2e61d4d6272f9313ee6637c5e5"
+    val apiKey = ""
 
     val city = args(0)
 
