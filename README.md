@@ -2,7 +2,7 @@
 
 ## An sbt project compiled with Scala 3
 
-Returns temperature and feels-like temperature for a given city.
+Returns the temperature and feels-like temperature for a given city.
 
 ### Usage
 
@@ -17,3 +17,5 @@ Try replacing Hamburg with a city of your choice!
 ### Remarks
 
 This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, etc.
+
+It uses GitHub Actions for CI.
