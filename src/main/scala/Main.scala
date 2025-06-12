@@ -14,8 +14,12 @@ object sWeather:
 
   @main def main(args: String*): Unit =
 
-    val apiKey = ""
-
+    val apiKey = sys.env.get("OPENWEATHER_API_KEY").getOrElse {
+    println("ERROR: OPENWEATHER_API_KEY environment variable not set.")
+    System.exit(1)
+    ""
+    }
+    
     val city = args(0)
 
     val apiUrl = s"http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric"

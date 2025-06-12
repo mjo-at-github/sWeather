@@ -11,4 +11,7 @@ jobs:
       OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
     steps:
       - uses: actions/checkout@v3
+      - name: Run test
+        if: env.OPENWEATHER_API_KEY != ''
+        run: sbt "run hamburg"
       # Add your build/test steps here
